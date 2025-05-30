@@ -1,31 +1,43 @@
-"use client";
+import flightImage from "../../public/SimulatingFlight/Flight1.webp";
+import flightVideo from "../../public/VideoBox/Roobot.mp4";
 
-import video from "../../public/VideoBox/Roobot.mp4";
-
-export default function RotatingBackground() {
+export default function StaticBackground() {
   return (
-    <figure className="absolute inset-0 z-0 overflow-hidden">
-      <video
-        className="hds-video-background w-full h-full object-cover"
+    <div className="absolute inset-0 z-0 overflow-hidden">
+      {/* Image for mobile and medium screens */}
+      <img
+        src={flightImage}
+        alt="Flight Background"
+        className="w-full h-full object-cover block lg:hidden"
         style={{
-          transform: "scale(1.2)",
+          transform: "scale(1)",
           transformOrigin: "70% 48%",
           objectPosition: "70% 48%",
         }}
+      />
+
+      {/* Video for large screens */}
+      <video
+        src={flightVideo}
         autoPlay
-        loop
         muted
+        loop
         playsInline
-        id="html5_media_arifni6sx54"
-      >
-        <source src={video} type="video/mp4" />
-      </video>
+        className="w-full h-full object-cover hidden lg:block"
+        style={{
+          transform: "scale(1)",
+          transformOrigin: "70% 48%",
+          objectPosition: "70% 48%",
+        }}
+      />
+
+      {/* Gradient Overlay */}
       <div
         className="absolute inset-0"
         style={{
           background: "linear-gradient(80.99deg, #000 0%, transparent 79.04%)",
         }}
       />
-    </figure>
+    </div>
   );
 }
