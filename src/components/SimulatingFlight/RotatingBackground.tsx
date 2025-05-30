@@ -1,5 +1,7 @@
 "use client";
 
+import video from "../../public/VideoBox/Roobot.mp4";
+
 export default function RotatingBackground() {
   return (
     <figure className="absolute inset-0 z-0 overflow-hidden">
@@ -16,10 +18,7 @@ export default function RotatingBackground() {
         playsInline
         id="html5_media_arifni6sx54"
       >
-        <source
-          src="https://www.nasa.gov/wp-content/uploads/2025/05/1-pia26574-perseverance-selfie-1.mp4"
-          type="video/mp4"
-        />
+        <source src={video} type="video/mp4" />
       </video>
       <div
         className="absolute inset-0"
